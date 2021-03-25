@@ -16,6 +16,14 @@ class StatsServiceTest {
     }
 
     @Test
+    void averageAmount() {
+        StatsService service = new StatsService();
+        int expected = 15;
+        int actual = service.averageAmount(purchases);
+        assertEquals(expected, actual);
+    }
+
+    @Test
     void findMax() {
         StatsService service = new StatsService();
         int expected = 20;
@@ -24,10 +32,10 @@ class StatsServiceTest {
     }
 
     @Test
-    void findPeak() {
+    void findMin() {
         StatsService service = new StatsService();
-        int expected = 6;
-        int actual = service.findPeak(service.month);
+        int expected = 7;
+        int actual = service.findMin(purchases);
         assertEquals(expected, actual);
     }
 }

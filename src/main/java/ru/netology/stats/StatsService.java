@@ -9,8 +9,15 @@ public class StatsService {
         for (int purchase : purchases) {
             sum += purchase;
         }
-        System.out.println("Сумма всех продаж: " + sum);
         return sum;
+    }
+
+    public int averageAmount(int[] purchases) {
+        int sum = 0;
+        for (int purchase : purchases) {
+        sum +=purchase;
+        }
+        return sum/purchases.length;
     }
 
     public int findMax(int[] purchases) {
@@ -20,16 +27,15 @@ public class StatsService {
                 currentMax = purchase;
             }
         }
-        System.out.println("Средняя сумма всех продаж: " + currentMax);
         return currentMax;
-    }
-        public int findPeak(int[] month){
-            int index = 0;
-            for (int i = 1; i <= purchases.length; i++) {
-                if (purchases[index] < purchases[i])
-                    index = i;
-                System.out.println("Номер месяца с пиком продаж: " + month[index]);
-            }
-            return month[index];
         }
-    }
+        public int findMin(int[] purchases) {
+        int currentMin = purchases[0];
+        for (int purchase : purchases) {
+            if (currentMin > purchase) {
+                currentMin = purchase;
+            }
+        }
+        return currentMin;
+            }
+        }
