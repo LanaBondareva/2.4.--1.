@@ -2,43 +2,39 @@ package ru.netology.stats;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class StatsServiceTest {
+public class StatsServiceTest {
     int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+    StatsService service = new StatsService();
 
     @Test
-    void calculateSum() {
-        StatsService service = new StatsService();
-        int expected = 180;
-        int actual = service.calculateSum(purchases);
-        assertEquals(expected, actual);
+    void shouldReturnSum() {
+        assertEquals(180, service.sum(purchases));
     }
 
     @Test
-    void averageAmount() {
-        StatsService service = new StatsService();
-        int expected = 15;
-        int actual = service.averageAmount(purchases);
-        assertEquals(expected, actual);
+    void shouldReturnAverage() {
+        assertEquals(15, service.average(purchases));
     }
 
     @Test
-    void findMax() {
-        StatsService service = new StatsService();
-        int expected = 20;
-        int actual = service.findMax(purchases);
-        assertEquals(expected, actual);
+    void shouldReturnMonthWithMax() {
+        assertEquals(8, service.lastNumberWithMax(purchases));
     }
 
     @Test
-    void findMin() {
-        StatsService service = new StatsService();
-        int expected = 7;
-        int actual = service.findMin(purchases);
-        assertEquals(expected, actual);
+    void shouldReturnMonthWithMin() {
+        assertEquals(9, service.lastNumberWithMin(purchases));
+    }
+
+    @Test
+    void shouldCountMoreThanAverage() {
+        assertEquals(5, service.moreThanAverage(purchases));
+    }
+
+    @Test
+    void shouldCountLessThanAverage() {
+        assertEquals(5, service.lessThanAverage(purchases));
     }
 }
-
-
-
